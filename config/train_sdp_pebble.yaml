@@ -1,0 +1,64 @@
+defaults:
+    - agent: sac_pebble
+    
+# this needs to be specified manually
+experiment: PEBBLE
+
+# reward learning
+segment: 50
+activation: leaky_relu
+init: default
+num_seed_steps: 500
+num_unsup_steps: 0
+num_interact: 2000
+reward_lr: 0.0001
+reward_batch: 128
+reward_update: 50
+feed_type: 0
+reset_update: 100
+topK: 5
+ensemble_size: 3
+max_feedback: 1400
+large_batch: 10
+label_margin: 0.0
+teacher_beta: -1
+teacher_gamma: 1
+teacher_eps_mistake: 0
+teacher_eps_skip: 0
+teacher_eps_equal: 0
+leverage_prior_data: 1
+prior_data_amount: 59001
+prior_data_path: 0
+# scheduling
+reward_schedule: 0
+num_train_steps: 1e6
+replay_buffer_capacity: ${num_train_steps}
+rm_train_batch_size: 128
+#ablation
+transfer_replay_buffer: 1
+transfer_reward_model: 1
+# evaluation config
+eval_frequency: 5000
+num_eval_episodes: 10
+device: cpu
+# logger
+log_frequency: 3000
+log_save_tb: true
+# video recorder
+save_video: false
+load_agent: 1
+# setups
+seed: 1
+
+# Environment
+env: dog_stand
+wandb_mode: online
+gradient_update: 1
+env_domain: DMCONTROL
+base_dir: temp
+prior_data_path: temp
+# hydra configuration
+hydra:
+    name: ${env}
+    run:
+        dir: ./exp/${env_domain}/${env}/RandomDataPEBBLE/H${diag_gaussian_actor.params.hidden_dim}_L${diag_gaussian_actor.params.hidden_depth}_lr${agent.params.actor_lr}/teacher_b${teacher_beta}_g${teacher_gamma}_m${teacher_eps_mistake}_s${teacher_eps_skip}_e${teacher_eps_equal}/label_smooth_${label_margin}/schedule_${reward_schedule}/${experiment}_unsup${num_unsup_steps}_inter${num_interact}_maxfeed${max_feedback}_Rbatch${reward_batch}_prior_data_amount${prior_data_amount}_act${activation}_sampling_type${feed_type}_seed${seed}
