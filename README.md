@@ -6,22 +6,27 @@
 
 ## Installation
 
+
 ```
 Follow instructions at these links to install mujoco 200:
 http://www.cs.cmu.edu/~cga/controls-intro-22/kantor/How_to_Install_MuJoCo_on_Ubuntu_V1.pdf
 
 License: https://www.roboti.us/file/mjkey.txt
 Add this into .mujoco dir
+We recommend creating separate virtual envs for dmc and metaworld experiments. 
 
-conda create --name sdp_env python=3.8
-conda activate sdp_env
-pip install -r requirements.txt
+conda create --name sdp_env_dmc python=3.8
+conda activate sdp_env_dmc
+pip install -r dmc_requirements.txt
 cd custom_dmcontrol
 pip install -e .
 cd ../custom_dmc2gym
 pip install -e .
-```
 
+conda create --name sdp_env_metaworld python=3.8
+conda activate sdp_env_metaworld
+pip install -r metaworld_requirements.txt
+```
 
 
 
