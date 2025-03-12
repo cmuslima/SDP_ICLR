@@ -214,7 +214,7 @@ class RewardModel:
     def construct_ensemble(self):
 
         for i in range(self.de):
-            print('self.aactivation', self.last_activation)
+            print('self.activation', self.last_activation)
             model = nn.Sequential(*gen_net(in_size=self.ds+self.da, 
                                            out_size=1, H=256, n_layers=3, 
                                            last_activation=self.last_activation, init=self.init)).float().to(self.device)

@@ -14,10 +14,9 @@ import tqdm
 import time
 
 from logger import Logger
-#from replay_buffer import ReplayBuffer
 from basic_replay_buffer import ReplayBuffer
 import utils 
-from reward_model import RewardModel
+from reward_model_regression import RewardModel
 from collections import deque
 
 import utils

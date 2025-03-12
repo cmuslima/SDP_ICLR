@@ -447,7 +447,7 @@ class Workspace(object):
 
 
 
-@hydra.main(config_path='config/sdp_pretrain.yaml', strict=True)
+@hydra.main(config_path='config/sdp_regression.yaml', strict=True)
 def main(cfg):
     entity = ''
     workspace = Workspace(cfg)

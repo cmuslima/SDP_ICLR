@@ -1,5 +1,3 @@
-"""This is the version where I do not fix the bug in the replay buffer, but I do set the relabel_prior_data variable to be True"""
-"""THIS IS THE OFFICAL SDP PREFERENCE LEARNING FILE 7/23/24"""
 
 import numpy as np
 import torch
@@ -8,7 +6,7 @@ import torch.nn.functional as F
 import os
 import time
 from logger import Logger
-from replay_buffer_reward_learning import ReplayBuffer
+from basic_replay_buffer import ReplayBuffer
 from reward_model_pebble_human import RewardModel
 import utils
 import hydra
