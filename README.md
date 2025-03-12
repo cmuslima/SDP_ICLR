@@ -61,7 +61,8 @@ pip install -r metaworld_requirements.txt
 
 * Step 1:
     * Run reward model pretraining via:
-        * python SDP_reward_pretraining.py num_seed_steps=50000 activation=tanh  prior_data_path="" base_dir="" where base_dir/prior_data_path is the location of the actor/critic, reward model and replay buffer that was saved in step 1
+        * python SDP_reward_pretraining.py num_seed_steps=50000 activation=tanh  prior_data_path="" base_dir="" 
+        * where base_dir/prior_data_path is the location of the actor/critic, reward model and replay buffer that was saved in step 1
 * Step 2: Human in the loop RL algorithm that follows in SDP
     * To train SDP-PEBBLE: 
         * python train_SDP_human_preferences.py 
@@ -74,7 +75,8 @@ pip install -r metaworld_requirements.txt
 
 
 * To train SDP + R-PEBBLE:
-    * python SDP_regression.py num_seed_steps=50000 where num_train_steps > 50000
+    * python SDP_regression.py num_seed_steps=50000 
+    * where num_train_steps > 50000
     * Note that this assumes you want to get suboptimal transitions via a random policy, where num_seed_steps is the number of sub-optimal transtitions you want to use. 
 
 * To train PEBBLE:
